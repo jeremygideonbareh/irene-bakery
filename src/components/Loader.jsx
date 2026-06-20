@@ -172,7 +172,7 @@ const Loader = () => {
           </div>
         </div>
         <div className="text-center">
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-[0.15em] text-primary loader-title">
+          <h1 className="font-logo text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-[0.08em] text-primary loader-title">
             BE KIND BAKERY &amp; CONFECTIONARY
           </h1>
         </div>

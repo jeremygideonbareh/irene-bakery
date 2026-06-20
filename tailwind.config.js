@@ -52,6 +52,7 @@ export default {
       fontFamily: {
         sans: ["Satoshi", "Inter", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
         serif: ["Fraunces", "Georgia", "ui-serif", "serif"],
+        logo: ["Abril Fatface", "Georgia", "serif"],
         input: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       fontSize: {

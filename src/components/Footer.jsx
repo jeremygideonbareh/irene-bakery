@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="border-t border-primary/20 px-6 py-8 md:py-12 bg-white/50">
       <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
         <div className="text-center md:text-left">
-          <p className="font-serif text-lg md:text-xl text-primary tracking-wide">Be Kind Bakery &amp; Confectionary</p>
+          <p className="font-logo text-base sm:text-lg md:text-xl text-primary tracking-wide">Be Kind Bakery &amp; Confectionary</p>
           <p className="text-[10px] md:text-xs text-muted-foreground mt-0.5">Shillong</p>
         </div>
 
