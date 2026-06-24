@@ -1,64 +1,20 @@
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
-import { SectionEyebrow, SectionHeading, CharReveal } from './RevealText'
-
-const reviews = [
-  {
-    name: 'Sawmzuali Guite',
-    text: 'This bakery offers a wide variety of pastries and cakes at affordable prices, making it a great spot for those with a sweet tooth. The flavors are delightful for the price. A perfect place to indulge in a sweet treat!',
-    rating: 5,
-    source: 'Google',
-    when: 'Feb 2025',
-  },
-  {
-    name: 'Krity Wankhar',
-    text: 'Everything is great about this place! Love the fresh baked goods and the price is also good. The staff are also good and kind.',
-    rating: 5,
-    source: 'Google',
-    when: 'Sep 2025',
-  },
-  {
-    name: 'AhmuA Trucking',
-    text: 'Fortunate to visit this place! A loving and caring owner simply suits the name of the shop!',
-    rating: 5,
-    source: 'Google',
-    when: 'Feb 2023',
-  },
-  {
-    name: 'Maureen Z Ralte',
-    text: 'Fresh tasty baked foods. Great quality and always a pleasant experience.',
-    rating: 5,
-    source: 'Google',
-    when: 'Jun 2025',
-  },
-  {
-    name: 'Julie Ngaihching',
-    text: 'The food is delicious you should try it!!!',
-    rating: 5,
-    source: 'Google',
-    when: '2025',
-  },
-  {
-    name: 'Lily Ralte',
-    text: 'The accommodating staff and fresh baked goods make this a wonderful place to visit every time.',
-    rating: 5,
-    source: 'Google',
-    when: '2025',
-  },
-]
+import { SectionEyebrow, CharReveal } from './RevealText'
+import { reviews } from '../data'
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="relative py-20 md:py-28 lg:py-36 px-4 md:px-6">
+    <section id="reviews" className="relative py-20 md:py-28 lg:py-36 px-6">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          className="text-center mb-10 md:mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <SectionEyebrow>Testimonials</SectionEyebrow>
-          <h2 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl font-medium leading-[1.2] text-balance text-foreground break-words whitespace-nowrap">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.2] text-foreground mt-4">
             <CharReveal>What our </CharReveal>
             <span className="text-primary italic"><CharReveal delay={0.3}>community</CharReveal></span>
             <CharReveal delay={0.5}> says</CharReveal>

@@ -1,50 +1,33 @@
 import { motion } from 'framer-motion'
-import { MapPin, Phone, Clock, MessageCircle } from 'lucide-react'
+import { MapPin, Phone, Clock, ShoppingBag } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { SectionEyebrow, SectionHeading, CharReveal } from './RevealText'
+import { SectionEyebrow, CharReveal } from './RevealText'
+import { contactInfo, bakeryPhotos } from '../data'
 
-const contactInfo = [
-  {
-    icon: MapPin,
-    label: 'Location',
-    value: 'Near Mizo Baptist Church, Phloly Giri Syiem Road\nBlock-F, Madanryting, Shillong 793021',
-    href: 'https://maps.google.com/?q=Be+Kind+Bakery+and+Confectionary+Shillong',
-  },
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: '096126 71091',
-    href: 'tel:+919612671091',
-  },
-  {
-    icon: Clock,
-    label: 'Hours',
-    value: 'Mon–Sat: 11:00 AM – 9:00 PM\nSunday: Closed',
-  },
-  {
-    icon: MessageCircle,
-    label: 'Services',
-    value: 'Takeaway · Google Pay · LGBTQ+ Friendly',
-  },
+const infoCards = [
+  { icon: MapPin, label: 'Location', value: contactInfo.address, href: `https://www.google.com/maps/place/${contactInfo.mapsQuery}` },
+  { icon: Phone, label: 'Phone', value: contactInfo.phone, href: `tel:${contactInfo.phone.replace(/\s/g, '')}` },
+  { icon: Clock, label: 'Hours', value: contactInfo.hours },
+  { icon: ShoppingBag, label: 'Services', value: contactInfo.services },
 ]
 
 export default function Contact({ onOrder }) {
   return (
-    <section id="contact" className="relative py-20 md:py-28 lg:py-36 px-4 md:px-6">
+    <section id="contact" className="relative py-20 md:py-28 lg:py-36 px-6">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          className="text-center mb-10 md:mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <SectionEyebrow>Get in Touch</SectionEyebrow>
-          <h2 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl font-medium leading-[1.2] text-balance text-foreground break-words whitespace-nowrap">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.2] text-foreground mt-4">
             <CharReveal>Find us in </CharReveal>
             <span className="text-primary italic"><CharReveal delay={0.3}>Shillong</CharReveal></span>
           </h2>
           <p className="mt-3 md:mt-4 text-sm md:text-base text-muted-foreground max-w-lg mx-auto">
-            Stop by for a treat, give us a call, or order online. We'd love to hear from you.
+            Stop by for a treat, give us a call, or order online.
           </p>
         </motion.div>
 
@@ -56,7 +39,7 @@ export default function Contact({ onOrder }) {
             transition={{ duration: 0.7 }}
             className="space-y-3 md:space-y-4"
           >
-            {contactInfo.map((info, i) => {
+            {infoCards.map((info, i) => {
               const Icon = info.icon
               return (
                 <motion.div
@@ -73,12 +56,8 @@ export default function Contact({ onOrder }) {
                   <div className="min-w-0">
                     <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wider mb-0.5">{info.label}</p>
                     {info.href ? (
-                      <a
-                        href={info.href}
-                        target={info.href.startsWith('http') ? '_blank' : undefined}
-                        rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="text-xs md:text-sm text-foreground hover:text-primary transition-colors whitespace-pre-line break-words"
-                      >
+                      <a href={info.href} target={info.href.startsWith('http') ? '_blank' : undefined} rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className="text-xs md:text-sm text-foreground hover:text-primary transition-colors whitespace-pre-line break-words">
                         {info.value}
                       </a>
                     ) : (
@@ -99,7 +78,7 @@ export default function Contact({ onOrder }) {
               <Button onClick={onOrder} className="flex-1 min-h-11 text-xs md:text-sm">
                 Order Now
               </Button>
-              <a href="https://maps.google.com/?q=Be+Kind+Bakery+and+Confectionary+Shillong" target="_blank" rel="noopener noreferrer" className="flex-1">
+              <a href={`https://www.google.com/maps/place/${contactInfo.mapsQuery}`} target="_blank" rel="noopener noreferrer" className="flex-1">
                 <Button variant="neutral" className="w-full min-h-11 text-xs md:text-sm">
                   Directions
                 </Button>
@@ -115,17 +94,42 @@ export default function Contact({ onOrder }) {
             className="rounded-xl overflow-hidden border border-primary/10 h-[250px] md:h-[400px] shadow-sm"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.079772766145!2d91.8766284!3d25.5855879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37507f89317d134b%3A0xfb2b38342e332fbf!2sBe%20Kind%20Bakery%20and%20Confectionary!5e0!3m2!1sen!2sin!4v1"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Be Kind Bakery and Confectionary location"
+              src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.08!2d${contactInfo.lng}!3d${contactInfo.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37507fdc7f511a11%3A0x11868b45f6c37895!2sB.J%20Bakery!5e0!3m2!1sen!2sin!4v1`}
+              width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+              title="B.J Bakery location"
             />
           </motion.div>
         </div>
+
+        {/* Full-bleed photo CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="relative rounded-2xl overflow-hidden border border-primary/10 mt-16 md:mt-24"
+        >
+          <div className="absolute inset-0">
+            <img src={bakeryPhotos[6]} alt="" className="w-full h-full object-cover" />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #f8f2edee, #f8f2ed99)' }} />
+          </div>
+          <div className="relative px-8 py-16 md:py-24 text-center">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium leading-tight text-foreground">
+              Ready to order something <span className="text-primary italic">delicious</span>?
+            </h2>
+            <p className="mt-4 text-sm md:text-base text-muted-foreground max-w-md mx-auto">
+              Freshly baked, affordable, and made with love. Place your order today.
+            </p>
+            <motion.button
+              onClick={onOrder}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="mt-8 px-8 py-3.5 text-sm font-semibold rounded-full transition-colors inline-flex items-center gap-2 bg-primary text-primary-foreground hover:opacity-90"
+            >
+              Order Now
+            </motion.button>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

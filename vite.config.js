@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 export default defineConfig({
-  base: '/be-kind-bakery/',
+  base: '/bj-bakery/',
   plugins: [react()],
   resolve: {
     alias: {

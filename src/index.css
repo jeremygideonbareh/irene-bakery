@@ -1,47 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 120 25% 97%;
-    --foreground: 30 30% 20%;
+    --background: 30 40% 96%;
+    --foreground: 20 30% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 30 30% 20%;
+    --card-foreground: 20 30% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 30 30% 20%;
-    --primary: 140 28% 65%;
+    --popover-foreground: 20 30% 12%;
+    --primary: 18 62% 56%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 140 31% 78%;
-    --secondary-foreground: 30 30% 20%;
-    --muted: 30 15% 50%;
+    --secondary: 150 20% 64%;
+    --secondary-foreground: 20 30% 12%;
+    --muted: 30 10% 48%;
     --muted-foreground: 30 10% 40%;
-    --accent: 32 52% 64%;
-    --accent-foreground: 30 30% 20%;
+    --accent: 35 45% 58%;
+    --accent-foreground: 20 30% 12%;
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 30 20% 88%;
-    --input: 30 20% 88%;
-    --ring: 140 28% 65%;
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 18 62% 56%;
     --radius: 0.75rem;
-
-    --main: #8cbf9a;
-    --overlay: rgba(0, 0, 0, 0.6);
-    --bg: #f5f9f5;
-    --bw: #ffffff;
-    --blank: #000000;
-    --text: #3d2b1f;
-    --mtext: #ffffff;
-    --ring-offset: #f5f9f5;
-    --box-shadow-x: 4px;
-    --box-shadow-y: 4px;
-    --reverse-box-shadow-x: -4px;
-    --reverse-box-shadow-y: -4px;
-    --base-font-weight: 500;
-    --heading-font-weight: 700;
-    --shadow: var(--box-shadow-x) var(--box-shadow-y) 0px 0px var(--border);
   }
 }
 

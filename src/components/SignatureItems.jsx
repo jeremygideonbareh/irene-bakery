@@ -1,71 +1,20 @@
 import { motion } from 'framer-motion'
-import { SectionEyebrow, SectionHeading, CharReveal } from './RevealText'
-
-const items = [
-  {
-    name: 'Pastries',
-    desc: 'Flaky, buttery, and perfectly baked. A wide variety of pastries that are light, fresh, and simply irresistible.',
-    highlight: 'Customer Favorite',
-    price: '₹40',
-    image: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=80',
-    badge: 'bg-amber-100 text-amber-700',
-  },
-  {
-    name: 'Cakes',
-    desc: 'Rich, moist, and beautifully finished. From classic black forest to fresh cream cakes — baked to perfection.',
-    highlight: 'Best Seller',
-    price: '₹35+',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80',
-    badge: 'bg-pink-100 text-pink-700',
-  },
-  {
-    name: 'Cookies',
-    desc: 'Crisp on the outside, chewy on the inside. Loaded with chocolate chunks and baked fresh every day.',
-    highlight: 'Must Try',
-    price: '₹25',
-    image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=80',
-    badge: 'bg-purple-100 text-purple-700',
-  },
-  {
-    name: 'Bread',
-    desc: 'Soft, fresh-baked bread — perfect for breakfast or a quick snack. Made with quality ingredients daily.',
-    highlight: 'Fresh Daily',
-    price: '₹30',
-    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80',
-    badge: 'bg-orange-100 text-orange-700',
-  },
-  {
-    name: 'Savoury Snacks',
-    desc: 'Hot, crispy, and satisfying. From puffs to rolls — perfect for a quick bite on the go.',
-    highlight: 'Quick Bite',
-    price: '₹40',
-    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&q=80',
-    badge: 'bg-green-100 text-green-700',
-  },
-  {
-    name: 'Custom Cakes',
-    desc: 'Birthday, anniversary, or just because. Order a custom-designed cake for your special celebration.',
-    highlight: 'Order Now',
-    price: 'From ₹300',
-    image: 'https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=600&q=80',
-    badge: 'bg-rose-100 text-rose-700',
-  },
-]
+import { SectionEyebrow, CharReveal } from './RevealText'
+import { menuItems } from '../data'
 
 export default function SignatureItems() {
   return (
-    <section id="menu" className="relative py-20 md:py-28 lg:py-36 px-4 md:px-6">
+    <section id="menu" className="relative py-20 md:py-28 lg:py-36 px-6">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-
       <div className="mx-auto max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          className="text-center mb-10 md:mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <SectionEyebrow>Our Menu</SectionEyebrow>
-          <h2 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl font-medium leading-[1.2] text-balance text-foreground break-words">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.2] text-foreground mt-4">
             <CharReveal>Our </CharReveal>
             <span className="text-primary italic"><CharReveal delay={0.3}>Bakes</CharReveal></span>
           </h2>
@@ -75,7 +24,7 @@ export default function SignatureItems() {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-          {items.map((item, i) => (
+          {menuItems.map((item, i) => (
             <motion.div
               key={item.name}
               initial={{ opacity: 0, y: 30 }}
@@ -85,12 +34,7 @@ export default function SignatureItems() {
               className="group relative rounded-xl border border-primary/10 bg-white overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all"
             >
               <div className="relative h-36 md:h-44 overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
+                <img src={item.image} alt={item.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 <span className={`absolute top-2.5 right-2.5 text-[10px] font-medium uppercase tracking-wider px-2 py-1 rounded-full shadow-sm ${item.badge}`}>
                   {item.highlight}
